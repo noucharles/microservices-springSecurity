@@ -32,6 +32,8 @@ public class JWTAutorizationFilter extends OncePerRequestFilter {
         httpServletResponse.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,authorization");
         //J'expose certaines valeurs ( dans le s1 ) au client ( angular, react, vue ...)
         httpServletResponse.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Credentials, authorization");
+        //J'accepte les requetes de type énumérées
+        httpServletResponse.addHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH");
         //Requete de pré-vérification Cross-Origin (CORS)
         if(httpServletRequest.getMethod().equals("OPTIONS")){
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
